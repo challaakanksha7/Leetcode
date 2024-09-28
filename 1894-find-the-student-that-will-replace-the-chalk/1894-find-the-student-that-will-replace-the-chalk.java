@@ -1,17 +1,21 @@
 class Solution {
     public int chalkReplacer(int[] chalk, int k) {
-        int count = 0;
-        while(k>=0){
-        for(int i=0;i<chalk.length;i++){
-            if(chalk[i]<=k){
-            k = k-chalk[i];
-            count++;
+        int i = 0;
+        while(k>0){
+            for(i = 0; i < chalk.length; i++){
+                k = k - chalk[i];
+                //System.out.println(k);
+                if(k==0){
+                    return (i+1)%chalk.length;
+                }
+                if(k<0){
+                    return i;
+                }
+                
             }
-            else
-            return i; 
-        }
-     }
-     int p = count%chalk.length;
-     return p;
+    }
+        //System.out.println("i:"+i);
+        return i;
+        
     }
 }
